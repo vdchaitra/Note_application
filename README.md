@@ -46,8 +46,8 @@ This project is a full-stack notes application built using the MERN stack (Mongo
    - Set up environment variables for database connection and JWT secrets.
 
 3. **Run the Application**:
-   - Start the backend server using `npm start` in the `backend` directory.
-   - Start the frontend development server using `npm start` in the `frontend` directory.
+   - Start the backend server using `npm run dev` in the `backend` directory.
+   - Start the frontend development server using `npm run dev` in the `frontend` directory.
 
 4. **Endpoints**:
    - **Registration**: `/api/user/register`
