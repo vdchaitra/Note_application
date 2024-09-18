@@ -17,6 +17,7 @@ function Notes() {
     const bg = useColorModeValue('gray.100', 'gray.900'); // Background color for light and dark mode
     const cardBg = useColorModeValue('white', 'gray.700'); // Card background color
     const textColor = useColorModeValue('gray.800', 'gray.200'); // Text color
+    const hoverbg = useColorModeValue('gray.800', 'gray.200');
 
     const fetchNotes = async () => {
         try {
@@ -151,7 +152,7 @@ function Notes() {
                                     borderColor={colorMode === "light" ? "gray.300" : "gray.600"}
                                     bg={cardBg}
                                     onClick={() => viewNoteDetails(item)}
-                                    _hover={{ cursor: 'pointer', bg: useColorModeValue('gray.100', 'gray.600') }}
+                                    _hover={{ cursor: 'pointer', bg: hoverbg }}
                                 >
                                     <Flex justify="space-between" align="center">
                                         <Heading size="sm" color="blue.600" textTransform="uppercase">{item.title}</Heading>
