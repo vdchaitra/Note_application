@@ -16,6 +16,8 @@ app.use(express.json())
 app.use(cors({
     origin:"*"
 }))
+
+app.use(express.static("public"));
 app.use("/user",userRouter)
 app.use("/notes",auth,noteRouter)
 
