@@ -34,6 +34,8 @@ This project is a full-stack notes application built using the MERN stack (Mongo
 - **Security & Data Handling**:
   - Handles Cross-Origin Resource Sharing (CORS) to manage requests from different origins.
   - Encrypts sensitive information and manages user sessions using tokens.
+ ## Live Demo
+Check out the live demo of the ToDo App [Here](https://note-app-m5qa.vercel.app/login)
 
 ## Getting Started
 
