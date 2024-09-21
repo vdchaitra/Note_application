@@ -7,24 +7,26 @@ function SearchBar({ onSearch }) {
 
   const onClearSearch = () => {
     setSearchValue("");
-    onSearch(""); // Clear the search in parent component
+    onSearch(""); // Clear the search in the parent component
   };
 
   const handleSearch = () => {
-    onSearch(searchValue); // Trigger search in parent component
+    onSearch(searchValue); // Trigger search in the parent component
   };
 
   return (
-    <Box display="flex" alignItems="center" p={4} borderRadius="md" >
+    <Box display="flex" alignItems="center" p={4} borderRadius="md">
       <Input 
         type='text'
         placeholder='Search Notes'
         value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
-        
+        onChange={(e) => {
+          setSearchValue(e.target.value);
+          handleSearch(); // Trigger search on every input change
+        }}
         maxW="300px"
         flexGrow={1}
-        p={5}             
+        p={2}              // Adjust padding if needed
         colorScheme="white"
         borderRadius="md"
         _focus={{ boxShadow: "outline" }}
@@ -44,7 +46,7 @@ function SearchBar({ onSearch }) {
 
       <IconButton 
         icon={<Search2Icon />} 
-        onClick={handleSearch} 
+        onClick={() => handleSearch()} // Trigger search on button click
         aria-label="Search"
         bg="transparent" 
         _hover={{ bg: 'blue.100' }} 

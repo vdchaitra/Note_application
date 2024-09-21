@@ -4,7 +4,7 @@ import axios from 'axios';
 import { EditIcon, DeleteIcon, SunIcon, MoonIcon } from '@chakra-ui/icons';
 import { auth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import SearchBar from '../components/SeachBar'; // Import the SearchBar component
+import SearchBar from '../components/SeachBar'; // Ensure the path is correct
 
 function Notes() {
     const [notes, setNotes] = useState([]);
@@ -17,8 +17,13 @@ function Notes() {
     const bg = useColorModeValue('gray.100', 'gray.900'); // Background color for light and dark mode
     const cardBg = useColorModeValue('white', 'gray.700'); // Card background color
     const textColor = useColorModeValue('gray.800', 'gray.200'); // Text color
+<<<<<<< HEAD
     const hoverbg = useColorModeValue('gray.800', 'gray.200');
+=======
+    const hoverbg = useColorModeValue('gray.100', 'gray.600');
+>>>>>>> 7d5c774 (frontend)
 
+    // Fetch notes
     const fetchNotes = async () => {
         try {
             const res = await axios.get("https://note-application-fs44.onrender.com/notes", {
@@ -35,8 +40,10 @@ function Notes() {
     };
 
     useEffect(() => {
-        fetchNotes();
-    }, [authDetail.token]); // Added authDetail.token as a dependency to refetch if token changes
+        if (authDetail.token) { // Ensure token exists before making a request
+            fetchNotes();
+        }
+    }, [authDetail.token]); // Dependency array correctly lists token as a dependency
 
     // Filtering and sorting notes
     const filteredAndSortedNotes = notes
@@ -57,14 +64,16 @@ function Notes() {
             return isMatching; // Return all notes if 'all' is selected
         })
         .sort((a, b) => {
-            // Optional: Sort by date or other criteria if needed
+            // Sort by date
             return new Date(b.updatedAt) - new Date(a.updatedAt);
         });
 
+    // Edit note
     const onEditNote = (note) => {
         navigate("/notes/create", { state: { note } });
     };
 
+    // Delete note
     const onDeleteNote = async (id, e) => {
         e.stopPropagation();
         try {
@@ -93,10 +102,12 @@ function Notes() {
         }
     };
 
+    // View note details
     const viewNoteDetails = (note) => {
         navigate(`/notes/view/${note._id}`, { state: { note } });
     };
 
+    // Handle search input change
     const handleSearch = (term) => {
         setSearchTerm(term); // Update the search term
     };
@@ -145,14 +156,22 @@ function Notes() {
 
                             return (
                                 <Box
-                                    key={index}
+                                    key={item._id}
                                     p={4}
                                     borderRadius="md"
                                     borderWidth={1}
                                     borderColor={colorMode === "light" ? "gray.300" : "gray.600"}
                                     bg={cardBg}
                                     onClick={() => viewNoteDetails(item)}
+<<<<<<< HEAD
                                     _hover={{ cursor: 'pointer', bg: hoverbg }}
+=======
+<<<<<<< HEAD
+                                    _hover={{ cursor: 'pointer', bg: hoverbg }}
+=======
+                                    _hover={{ cursor: 'pointer', bg: hoverbg}}
+>>>>>>> 079fb93 (updated)
+>>>>>>> 7d5c774 (frontend)
                                 >
                                     <Flex justify="space-between" align="center">
                                         <Heading size="sm" color="blue.600" textTransform="uppercase">{item.title}</Heading>
