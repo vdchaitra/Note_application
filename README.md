@@ -35,7 +35,7 @@ This project is a full-stack notes application built using the MERN stack (Mongo
   - Handles Cross-Origin Resource Sharing (CORS) to manage requests from different origins.
   - Encrypts sensitive information and manages user sessions using tokens.
  ## Live Demo
-Check out the live demo of the Note App [Here](https://note-application-gamma.vercel.app/login)
+Check out the live demo of the Note App [Here](https://note-application-4d67.vercel.app/login)
 
 ## Getting Started
 
